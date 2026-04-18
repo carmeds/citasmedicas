@@ -11,26 +11,53 @@
 </head>
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen bg-gray-100">
+<div class="min-h-screen bg-gray-100">
 
-        @include('layouts.navigation')
+    <!-- NAV SUPERIOR -->
+    @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+    <!-- CONTENEDOR FLEX -->
+    <div class="flex">
 
-        <!-- Page Content -->
-        <main>
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-md min-h-screen">
+            <div class="p-6 text-xl font-bold border-b">
+                🏥 Citas Médicas
+            </div>
+
+            <nav class="p-4 space-y-2">
+                <a href="{{ route('dashboard') }}"
+                   class="block px-4 py-2 rounded-lg {{ request()->routeIs('dashboard') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200' }}">
+                    Dashboard
+                </a>
+
+                <a href="{{ route('citas.index') }}"
+                   class="block px-4 py-2 rounded-lg {{ request()->routeIs('citas.*') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200' }}">
+                    Citas
+                </a>
+
+                <a href="{{ route('pacientes.index') }}"
+                class="block px-4 py-2 rounded-lg {{ request()->routeIs('pacientes.*') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200' }}">
+                    Pacientes
+                </a>
+
+               <a href="{{ route('doctores.index') }}"
+                class="block px-4 py-2 rounded-lg {{ request()->routeIs('doctores.*') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200' }}">
+                    Doctores
+                </a>
+
+            </nav>
+        </aside>
+
+        <!-- CONTENIDO -->
+        <main class="flex-1 p-6">
             {{ $slot }}
         </main>
 
     </div>
 
-    @livewireScripts
+</div>
+
+@livewireScripts
 </body>
 </html>
