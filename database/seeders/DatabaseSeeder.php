@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // 1. Crear doctores y pacientes
-        $doctors = Doctor::factory(20)->create();
-        $patients = Patient::factory(50)->create();
+        $doctors = Doctor::factory(15)->create();
+        $patients = Patient::factory(30)->create();
 
         // 2. Crear horarios por doctor
         foreach ($doctors as $doctor) {
