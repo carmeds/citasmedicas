@@ -1,4 +1,4 @@
-<div>
+<div class="text-gray-800 dark:text-gray-100">
 
     <button wire:click="create"
         class="mb-4 bg-blue-500 text-white px-4 py-2 rounded">
@@ -6,14 +6,14 @@
     </button>
 
     @if (session()->has('message'))
-        <div class="bg-green-200 p-2 mb-4 rounded">
+            <div class="bg-green-200 dark:bg-green-900/50 text-green-800 dark:text-green-200 p-2 mb-4 rounded">
             {{ session('message') }}
         </div>
     @endif
 
-    <table class="w-full bg-white shadow rounded">
+    <table class="w-full bg-white dark:bg-gray-800 shadow rounded">
         <thead>
-            <tr class="bg-gray-200">
+            <tr class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
                 <th class="p-2">Usuario</th>
                 <th class="p-2">CMP</th>
                 <th class="p-2">Especialidad</th>
@@ -23,7 +23,7 @@
 
         <tbody>
             @foreach($doctors as $doctor)
-                <tr class="border-t">
+                <tr class="border-t border-gray-200 dark:border-gray-700">
                     <td class="p-2">{{ $doctor->user->name }}</td>
                     <td class="p-2">{{ $doctor->cmp }}</td>
                     <td class="p-2">{{ $doctor->specialty->name }}</td>
@@ -50,13 +50,13 @@
     @if($isOpen)
     <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
 
-        <div class="bg-white p-6 rounded shadow w-1/3">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded shadow w-1/3">
 
             <h2 class="text-lg mb-4">
                 {{ $doctor_id ? 'Editar Doctor' : 'Nuevo Doctor' }}
             </h2>
 
-            <select wire:model="user_id" class="w-full mb-3 p-2 border rounded">
+            <select wire:model="user_id" class="w-full mb-3 p-2 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 rounded">
                 <option value="">Seleccione Usuario</option>
                 @foreach($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -65,9 +65,9 @@
 
             <input type="text" wire:model="cmp"
                 placeholder="CMP"
-                class="w-full mb-3 p-2 border rounded">
+                class="w-full mb-3 p-2 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 rounded">
 
-            <select wire:model="specialty_id" class="w-full mb-3 p-2 border rounded">
+            <select wire:model="specialty_id" class="w-full mb-3 p-2 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 rounded">
                 <option value="">Seleccione Especialidad</option>
                 @foreach($specialties as $spec)
                     <option value="{{ $spec->id }}">{{ $spec->name }}</option>
@@ -76,7 +76,7 @@
 
             <div class="flex justify-end gap-2">
                 <button wire:click="closeModal"
-                    class="bg-gray-400 px-3 py-1 rounded">
+                    class="bg-gray-400 dark:bg-gray-600 dark:text-white px-3 py-1 rounded">
                     Cancelar
                 </button>
 

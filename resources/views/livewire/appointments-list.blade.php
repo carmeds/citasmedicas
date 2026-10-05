@@ -1,14 +1,14 @@
-<div class="bg-white shadow-md rounded-xl overflow-hidden">
+<div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden">
 
-    <div class="px-6 py-4 border-b">
-        <h2 class="text-lg font-semibold text-gray-700">
+    <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200">
             Listado de Citas
         </h2>
     </div>
 
     <div class="overflow-x-auto">
-        <table class="min-w-full text-sm text-left text-gray-600">
-            <thead class="bg-gray-100 text-xs uppercase text-gray-500">
+        <table class="min-w-full text-sm text-left text-gray-600 dark:text-gray-300">
+            <thead class="bg-gray-100 dark:bg-gray-700 text-xs uppercase text-gray-500 dark:text-gray-300">
                 <tr>
                     <th class="px-6 py-3">Paciente</th>
                     <th class="px-6 py-3">Doctor</th>
@@ -18,10 +18,10 @@
                 </tr>
             </thead>
 
-            <tbody class="divide-y">
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                 @foreach($appointments as $a)
-                    <tr class="hover:bg-gray-50 transition">
-                        <td class="px-6 py-4 font-medium text-gray-800">
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                        <td class="px-6 py-4 font-medium text-gray-800 dark:text-gray-100">
                             {{ $a->patient->user->name }}
                         </td>
 
